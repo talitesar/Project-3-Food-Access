@@ -1,0 +1,1 @@
+const url = "https://raw.githubusercontent.com/gavinr/usa-mcdonalds-locations/master/mcdonalds.geojson"
