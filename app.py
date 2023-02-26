@@ -1,6 +1,5 @@
 # import flask functions
 from flask import Flask, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 
 
@@ -13,7 +12,7 @@ app = Flask(__name__)
 #page for mcdonalds tracts information
 @app.route('/')
 def index():
-    conn = sqlite3.connect('mcdonaldtracts.sqlite')
+    conn = sqlite3.connect('database/outputdata.sqlite')
     cursor = conn.cursor()
 
     cursor.execute('SELECT SUM(CountMcD) FROM dataframe WHERE CountMcD > 0')
