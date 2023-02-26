@@ -1,6 +1,7 @@
 # import flask functions
 from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
+import sqlite3
 
 
 app = Flask(__name__)
@@ -12,7 +13,15 @@ app = Flask(__name__)
 #page for mcdonalds tracts information
 @app.route('/')
 def index():
-    return render_template('index.html')
+    conn = sqlite3.connect('mcdonaldtracts.sqlite')
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT SUM(CountMcD) FROM dataframe WHERE CountMcD > 0')
+    mcD_sum = cursor.fetchone()[0] or 0
+    print(mcD_sum)
+
+    conn.close()
+    return render_template('index.html', mcD_sum=mcD_sum)
 
 
 # View for map of Texas with mcdonalds locations in each Censustract
