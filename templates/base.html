@@ -1,31 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}- FlaskApp</title>
-    <style>
-        .post {
-            padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3
-        }
-
-        nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-    </style>
+  <style>
+          body {
+        background-color: lightblue;
+      }
+    .location-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+  
+    .location-table th, .location-table td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+  
+    .location-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  
+    .location-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+    <meta charset="utf-8" />
+    <title>Leaflet Map Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>    
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('index') }}">FlaskApp</a>
-        <a href="#">About</a>
-    </nav>
-    <hr>
-    <div class="content">
-        {% block content %} {% endblock %}
-    </div>
+  <h2>Location of McDonalds by City:</h2>
+    <table id="locationTable" class="location-table">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Number of Locations</th>
+        </tr>
+      </thead>
+      <tbody>
+  <input type="file" id="fileInput">
+    <div id="map" style="height: 500px;"></div>
+    <script src="{{ url_for('static', filename='logic.js') }}"></script>
 </body>
 </html>
