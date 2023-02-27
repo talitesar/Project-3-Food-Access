@@ -1,25 +1,51 @@
 <!doctype html>
 <html>
   <head>
-    <title>My incredible web site.</title>
+    <title>Food Access in Texas</title>
+    <style>
+      body {
+        background-color: #FFC72C;
+      }
+      h2 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">McDonalds in Texas Census Tracts</a>
-      </nav>
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-4">There are {{ "{:,}".format(mcD_sum) }} McDonalds in Texas Census Tracts.</h1>
-          <p class="lead">It's pretty cool.</p>
-        </div>
-      </div>
+    <div class="jumbotron">
       <div class="container">
-        <p>I'm amazed and frankly you should be, too.</p>
-        {% for tract in mcD_count %}
-          {% if tract.CountMcD and tract.CountMcD > 0 %}
-            <p><a href="/tracts/{{ tract.CensusTract }}">{{ tract.CensusTract }}</a></p>
-          {% endif %}
-        {% endfor %}
+        <h1 class="display-4">There are {{ "{:,}".format(mcD_sum) }} McDonalds in Texas.</h1>
       </div>
+    </div>
+    <div class="container">
+
+      {% for tract in mcD_count %}
+        {% if tract.CountMcD and tract.CountMcD > 0 %}
+          <p><a href="/tracts/{{ tract.CensusTract }}">{{ tract.CensusTract }}</a></p>
+        {% endif %}
+      {% endfor %}
+
+      <h2>Food Access in the United States</h2>
+      <p>Access to healthy and affordable food is a critical issue for many Americans, particularly those living in low-income and rural areas. Addressing food deserts, improving SNAP participation rates,
+         and increasing access to farmer's markets are just some of the ways we can work to improve food access and reduce health disparities. There are also many options of fast food that many Americans
+        might consider to choose from if they find that option to be more convenient rather than going to a grocery store that they might have low access to either by not having a mode of transportation or
+      not being in proximity to one. We have chosen to look at McDonalds as one of the many choices of fast food and casual dining restaurants as it is widely known throughout the United States for their 
+    delicious fast food. Here you can visit <a href="https://gisportal.ers.usda.gov/portal/apps/experiencebuilder/experience/?id=a53ebd7396cd4ac3a3ed09137676fd40"Food Access</a> on more information on Food access
+    that affects Census tracts that are monitored by the US Census.</p>
+
+      <a href="/data" class="btn">View Data</a>
+    </div>
   </body>
 </html>
