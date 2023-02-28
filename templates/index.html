@@ -31,17 +31,6 @@
   </head>
   <body>
     <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-4">There are {{ "{:,}".format(mcD_sum) }} McDonalds in Texas.</h1>
-      </div>
-    </div>
-    <div class="container">
-
-      {% for tract in mcD_count %}
-        {% if tract.CountMcD and tract.CountMcD > 0 %}
-          <p><a href="/tracts/{{ tract.CensusTract }}">{{ tract.CensusTract }}</a></p>
-        {% endif %}
-      {% endfor %}
 
       <h2>Food Access in the United States</h2>
       <p>Access to healthy and affordable food is a critical issue for many Americans, particularly those living in low-income and rural areas. Addressing food deserts, improving SNAP participation rates,
@@ -59,6 +48,7 @@
       Overall, low access to healthy food options, low income, and lack of transportation can all contribute to a higher likelihood of consuming fast food. These factors can create barriers to accessing healthy food options, making fast food a more practical and accessible choice for many individuals. Addressing these factors, such as by increasing access to healthy food options in food deserts, improving transportation options, and increasing financial resources, can help to reduce the prevalence of fast food consumption and promote healthier eating habits.</h3>
 
       <a href="/data" class="btn">View Data</a>
+      <a href="/story" class="btn">View Story</a>
     </div>
   </body>
 </html>

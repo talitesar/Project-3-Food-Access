@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-4">There are {{ "{:,}".format(mcD_sum) }} McDonalds in Texas.</h1>
+        </div>
+      </div>
+      <div class="container">
+  
+        {% for tract in mcD_count %}
+          {% if tract.CountMcD and tract.CountMcD > 0 %}
+            <p><a href="/tracts/{{ tract.CensusTract }}">{{ tract.CensusTract }}</a></p>
+          {% endif %}
+        {% endfor %}
+        <img src="../images/highestpovertyrateandmcd.png" alt="image ofgraph">
+        <img src="../images/lowestpovrateandmcdpercap.png" alt="image of graph">
+        <img src="../images/mcdlowestpovrateseaborn.png" alt="image of graph">
+        <img src="../images/highestpovertyrateandmcd.png" alt="image of graph">
+</body>
+</html>
